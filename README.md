@@ -125,9 +125,9 @@ Wat er al in zit:
 - **`meta robots`** met `max-image-preview:large`: je afbeelding mag groot in de resultaten.
 - **Social preview** (`og:` + `twitter:`): plak je link in WhatsApp, LinkedIn of Facebook en je
   ziet titel, omschrijving én afbeelding in plaats van een kale URL.
-- **Deelafbeelding** in je eigen kleuren: `assets/img/og-image.jpg` (1200×630, 49 kB) met het
-  woordmerk, je twee diensten en je webadres. Vervang hem gerust door je eigen foto — zie
-  hieronder.
+- **Deelafbeelding**: je eigen foto met je woordmerk erop — `assets/img/og-image.jpg` (1200×630).
+- **Echte foto in de "Over mij"-sectie** (`assets/img/portrait.jpg`), plus een `Person`-node in
+  de structured data die jou als oprichter (`founder`) aan het bedrijf koppelt.
 - **Structured data** (`application/ld+json`): LocalBusiness + je twee diensten + de website.
   Dit is de machineleesbare versie van je bedrijf; Google gebruikt het voor rich results.
 - **Snel en licht**: de hele pagina is ~25 kB en gebruikt geen externe libraries — precies wat
@@ -149,11 +149,10 @@ Let op: de gegevens op de pagina, in de structured data en op je Google-bedrijfs
 
 ### Je eigen foto als deelafbeelding
 
-De deellink gebruikt nu een kaart in je eigen kleuren. Wil je daar liever een echte foto — je
-werkplaats, of jij aan het werk met een portaal onder je arm? Vervang dan
-`assets/img/og-image.jpg` door je eigen foto, **met dezelfde bestandsnaam**. Aan de code hoef je
-niets te veranderen: de pagina, de social tags en de structured data wijzen allemaal naar dat
-ene bestand.
+De deellink gebruikt nu je eigen foto met je naam erop. Wil je later een andere foto — een andere
+pose, of je werkplaats? Vervang dan `assets/img/og-image.jpg` door die foto, **met dezelfde
+bestandsnaam**. Aan de code hoef je niets te veranderen: de pagina, de social tags en de
+structured data wijzen allemaal naar dat ene bestand.
 
 ```bash
 ffmpeg -i jouw-foto.jpg \
