@@ -125,9 +125,9 @@ Wat er al in zit:
 - **`meta robots`** met `max-image-preview:large`: je afbeelding mag groot in de resultaten.
 - **Social preview** (`og:` + `twitter:`): plak je link in WhatsApp, LinkedIn of Facebook en je
   ziet titel, omschrijving én afbeelding in plaats van een kale URL.
-- **Deelafbeelding**: je eigen foto met je woordmerk erop — `assets/img/og-image.jpg` (1200×630).
-- **Echte foto in de "Over mij"-sectie** (`assets/img/portrait.jpg`), plus een `Person`-node in
-  de structured data die jou als oprichter (`founder`) aan het bedrijf koppelt.
+- **Deelafbeelding**: een kaart in je eigen kleuren — `assets/img/og-image.jpg` (1200×630) met je
+  woordmerk, je twee diensten en je webadres.
+- **`Person`-node** in de structured data die jou als oprichter (`founder`) aan het bedrijf koppelt.
 - **Structured data** (`application/ld+json`): LocalBusiness + je twee diensten + de website.
   Dit is de machineleesbare versie van je bedrijf; Google gebruikt het voor rich results.
 - **Snel en licht**: de hele pagina is ~25 kB en gebruikt geen externe libraries — precies wat
@@ -149,9 +149,10 @@ Let op: de gegevens op de pagina, in de structured data en op je Google-bedrijfs
 
 ### Je eigen foto als deelafbeelding
 
-De deellink gebruikt nu je eigen foto met je naam erop. Wil je later een andere foto — een andere
-pose, of je werkplaats? Vervang dan `assets/img/og-image.jpg` door die foto, **met dezelfde
-bestandsnaam**. Aan de code hoef je niets te veranderen: de pagina, de social tags en de
+De deellink gebruikt nu een kaart in je eigen kleuren. Voor dit soort vakwerk werkt een foto van
+je **werkplaats of gereedschap** vaak beter dan een gezicht — precies zoals KoffieLaw het met
+productfoto's doet. Wil je er later zo'n foto bij? Vervang dan `assets/img/og-image.jpg`, **met
+dezelfde bestandsnaam**. Aan de code hoef je niets te veranderen: de pagina, de social tags en de
 structured data wijzen allemaal naar dat ene bestand.
 
 ```bash
