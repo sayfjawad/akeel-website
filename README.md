@@ -124,7 +124,10 @@ Wat er al in zit:
 - **`robots.txt` + `sitemap.xml`** met de canonieke URL, en `<link rel="canonical">` in de pagina.
 - **`meta robots`** met `max-image-preview:large`: je afbeelding mag groot in de resultaten.
 - **Social preview** (`og:` + `twitter:`): plak je link in WhatsApp, LinkedIn of Facebook en je
-  ziet titel en omschrijving in plaats van een kale URL.
+  ziet titel, omschrijving én afbeelding in plaats van een kale URL.
+- **Deelafbeelding** in je eigen kleuren: `assets/img/og-image.jpg` (1200×630, 49 kB) met het
+  woordmerk, je twee diensten en je webadres. Vervang hem gerust door je eigen foto — zie
+  hieronder.
 - **Structured data** (`application/ld+json`): LocalBusiness + je twee diensten + de website.
   Dit is de machineleesbare versie van je bedrijf; Google gebruikt het voor rich results.
 - **Snel en licht**: de hele pagina is ~25 kB en gebruikt geen externe libraries — precies wat
@@ -140,10 +143,31 @@ Wat jij nog moet invullen (staat als TODO-commentaar bovenin `index.html`):
 | `openingHoursSpecification` | openingstijden |
 | `geo` | latitude/longitude van je werkplaats |
 | `sameAs` | je Instagram/Facebook-URL's |
-| `og:image` | echte foto van 1200×630 px — dan krijgt je deellink een plaatje |
 
 Let op: de gegevens op de pagina, in de structured data en op je Google-bedrijfsprofiel moeten
 **exact hetzelfde** zijn. Onbekende velden kun je beter weglaten dan gokken.
+
+### Je eigen foto als deelafbeelding
+
+De deellink gebruikt nu een kaart in je eigen kleuren. Wil je daar liever een echte foto — je
+werkplaats, of jij aan het werk met een portaal onder je arm? Vervang dan
+`assets/img/og-image.jpg` door je eigen foto, **met dezelfde bestandsnaam**. Aan de code hoef je
+niets te veranderen: de pagina, de social tags en de structured data wijzen allemaal naar dat
+ene bestand.
+
+```bash
+ffmpeg -i jouw-foto.jpg \
+  -vf "scale=1200:630:force_original_aspect_ratio=increase,crop=1200:630" \
+  -q:v 3 assets/img/og-image.jpg
+```
+
+Kies een foto van minstens 1200 px breed, kijk of het resultaat tussen de 50 en 150 kB zit
+(`ls -l assets/img/og-image.jpg`) en push. WhatsApp en LinkedIn tonen geen SVG; JPEG werkt overal,
+vandaar deze bestandsnaam.
+
+De kaart opnieuw maken met andere woorden of kleuren? Dat staat in `tools/make-og-image.sh` — pas
+de tekst of de kleurcodes aan en draai `bash tools/make-og-image.sh`. Het script gebruikt
+`ffmpeg`, dat al in de container staat.
 
 Let op (tweetaligheid): de Nederlandse teksten staan in `app.js` en zijn dus alleen zichtbaar
 als JavaScript draait. Zoekmachines zien daarom de **Engelse** pagina. Wil je ook op Nederlandse

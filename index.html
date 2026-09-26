@@ -10,9 +10,11 @@
   <meta name="description" content="Friendly, reliable repair and maintenance for coffee machines and electric bikes. Book a repair with Velvet & Voltage.">
   <title>Velvet &amp; Voltage — Repairs for things that keep you going</title>
   <link rel="stylesheet" href="/assets/css/style.css">
-  <!-- Social preview. Add these two lines as soon as you have a real photo (1200x630, under 300 kB):
-       <meta property="og:image" content="https://akeel.sdai.nl/assets/img/og-image.jpg">
-       <meta property="og:image:alt" content="Velvet & Voltage workshop — coffee machine repair"> -->
+  <meta property="og:image" content="https://akeel.sdai.nl/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="Velvet &amp; Voltage — coffee machines and e-bikes, repaired with care">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Velvet &amp; Voltage">
   <meta property="og:locale" content="en_GB">
@@ -20,13 +22,16 @@
   <meta property="og:url" content="https://akeel.sdai.nl/">
   <meta property="og:title" content="Velvet &amp; Voltage — Repairs for things that keep you going">
   <meta property="og:description" content="Friendly, reliable repair and maintenance for coffee machines and electric bikes. Book a repair with Velvet &amp; Voltage.">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Velvet &amp; Voltage — Repairs for things that keep you going">
   <meta name="twitter:description" content="Friendly, reliable repair and maintenance for coffee machines and electric bikes. Book a repair with Velvet &amp; Voltage.">
+  <meta name="twitter:image" content="https://akeel.sdai.nl/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="Velvet &amp; Voltage — coffee machines and e-bikes, repaired with care">
   <!-- Structured data for Google. Fill these in once you know them, then they count:
        "telephone", "email", "priceRange", "address" (or "areaServed" with your towns),
        "openingHoursSpecification", "geo" (latitude/longitude), "sameAs" (Instagram/Facebook URLs).
-       TODO in index.html. -->
+       Swap assets/img/og-image.jpg for a real 1200x630 photo when you have one — same filename,
+       no other change needed. TODO in index.html. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,6 +43,13 @@
         "description": "Independent repair and maintenance for coffee machines and electric bikes.",
         "url": "https://akeel.sdai.nl/",
         "logo": "https://akeel.sdai.nl/favicon.svg",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://akeel.sdai.nl/#image",
+          "url": "https://akeel.sdai.nl/assets/img/og-image.jpg",
+          "width": 1200,
+          "height": 630
+        },
         "knowsLanguage": ["nl", "en"],
         "knowsAbout": [
           "Coffee machine repair",
