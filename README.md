@@ -114,3 +114,38 @@ git push
 ```
 
 Repo: `git@github.com:sayfjawad/akeel-website.git`
+
+## Vindbaarheid (SEO)
+
+Wat er al in zit:
+
+- **Titel + omschrijving per taal** — wisselt mee met de taalknop.
+- **Eén `<h1>`**, koppen in oplopende volgorde (`h2` per sectie, `h3` per kaart).
+- **`robots.txt` + `sitemap.xml`** met de canonieke URL, en `<link rel="canonical">` in de pagina.
+- **`meta robots`** met `max-image-preview:large`: je afbeelding mag groot in de resultaten.
+- **Social preview** (`og:` + `twitter:`): plak je link in WhatsApp, LinkedIn of Facebook en je
+  ziet titel en omschrijving in plaats van een kale URL.
+- **Structured data** (`application/ld+json`): LocalBusiness + je twee diensten + de website.
+  Dit is de machineleesbare versie van je bedrijf; Google gebruikt het voor rich results.
+- **Snel en licht**: de hele pagina is ~25 kB en gebruikt geen externe libraries — precies wat
+  je wil voor mobiel.
+
+Wat jij nog moet invullen (staat als TODO-commentaar bovenin `index.html`):
+
+| Veld in de structured data | Waarom |
+| --- | --- |
+| `telephone`, `email` | horen bij de LocalBusiness-gegevens; Google leest en toont ze |
+| `address` of `areaServed` met je plaatsen | hiermee kom je in lokale zoekresultaten |
+| `priceRange` | helpt bij zoekopdrachten over kosten |
+| `openingHoursSpecification` | openingstijden |
+| `geo` | latitude/longitude van je werkplaats |
+| `sameAs` | je Instagram/Facebook-URL's |
+| `og:image` | echte foto van 1200×630 px — dan krijgt je deellink een plaatje |
+
+Let op: de gegevens op de pagina, in de structured data en op je Google-bedrijfsprofiel moeten
+**exact hetzelfde** zijn. Onbekende velden kun je beter weglaten dan gokken.
+
+Let op (tweetaligheid): de Nederlandse teksten staan in `app.js` en zijn dus alleen zichtbaar
+als JavaScript draait. Zoekmachines zien daarom de **Engelse** pagina. Wil je ook op Nederlandse
+zoekwoorden gevonden worden, dan is een echte `/nl/`-pagina met statische Nederlandse teksten
+nodig (met `hreflang` tussen beide talen).
