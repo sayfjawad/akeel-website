@@ -3,51 +3,235 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>akeel · sdai.nl</title>
-    <style>
-      :root { color-scheme: light dark; }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0; min-height: 100vh; display: grid; place-items: center;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        background: radial-gradient(1200px 600px at 50% -10%, #6366f1 0%, #0b1020 55%);
-        color: #e7e9f3;
-      }
-      .card {
-        max-width: 640px; margin: 2rem; padding: 2.5rem;
-        background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 20px; backdrop-filter: blur(8px);
-        box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      }
-      h1 { margin: 0 0 .25rem; font-size: 2rem; }
-      .badge { display:inline-block; font-size:.8rem; padding:.2rem .6rem;
-        background:#6366f1; border-radius:999px; margin-bottom:1rem; }
-      p { line-height: 1.6; opacity: .9; }
-      code { background: rgba(0,0,0,.35); padding: .15rem .4rem; border-radius: 6px; font-size:.9em; }
-      ol { line-height: 1.9; }
-      a { color: #a5b4fc; }
-    </style>
+    <title>Akeel — [jouw slogan]</title>
+    <meta name="description" content="[Korte omschrijving van jouw website in één of twee zinnen.]" />
+    <meta name="theme-color" content="#0b1020" />
+    <link rel="canonical" href="https://akeel.sdai.nl/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Delen op social media: vervang titel en omschrijving hierboven en hieronder. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Akeel — [jouw slogan]" />
+    <meta property="og:description" content="[Korte omschrijving van jouw website.]" />
+    <meta property="og:url" content="https://akeel.sdai.nl/" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <main class="card">
-      <span class="badge">AI Training · sdai.nl</span>
-      <h1>Hoi Akeel 👋</h1>
-      <p>
-        Je omgeving draait. Deze pagina wordt geserveerd vanuit
-        <code>/workspace/akeel-website</code> op poort <code>3000</code> en is
-        live op <a href="https://akeel.sdai.nl">akeel.sdai.nl</a>.
-      </p>
-      <p>Aan de slag met je agent:</p>
-      <ol>
-        <li>Open de browser-IDE of SSH in je omgeving.</li>
-        <li>Laat de agent deze site verbouwen tot jouw web-app.</li>
-        <li>Sla het werk op: <code>git add -A &amp;&amp; git commit -m "..." &amp;&amp; git push</code></li>
-      </ol>
-      <p style="opacity:.7;font-size:.9rem">
-        Je code staat in <code>github.com/sayfjawad/akeel-website</code>.
-        Vervang gerust <code>server.js</code> en <code>index.html</code> door je eigen framework —
-        blijf alleen op <code>0.0.0.0:3000</code> serveren.
-      </p>
+    <a class="skip-link" href="#main">Ga direct naar de inhoud</a>
+
+    <header class="site-header" id="top">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="Akeel — naar boven">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="brand-name">Akeel</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Menu openen of sluiten</span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Hoofdmenu">
+          <ul>
+            <li><a href="#over">Over</a></li>
+            <li><a href="#diensten">Diensten</a></li>
+            <li><a href="#werk">Werk</a></li>
+            <li><a class="nav-cta" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <!-- ===== Hero: pas het badge-label, de titel en de intro aan ===== -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap hero-inner">
+          <p class="badge">Welkom</p>
+          <h1 id="hero-title">Hoi, ik ben <span class="accent">Akeel</span></h1>
+          <p class="lead">
+            [Vertel hier in twee of drie zinnen wie je bent, wat je doet en voor wie.]
+            Vervang deze tekst door jouw eigen verhaal; de rest van de pagina bouwt daarop voort.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Neem contact op</a>
+            <a class="btn btn-ghost" href="#diensten">Bekijk mijn diensten</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Over mij ===== -->
+      <section class="section" id="over" aria-labelledby="over-title">
+        <div class="wrap grid-2">
+          <div>
+            <h2 id="over-title">Over mij</h2>
+            <p>
+              [Schrijf hier een korte introductie: je achtergrond, hoe je werkt en wat jou
+              onderscheidt. Twee tot drie alinea's is meestal genoeg.]
+            </p>
+            <ul class="checklist">
+              <li>[Waar je goed in bent of trots op bent]</li>
+              <li>[Met wie of voor wie je graag werkt]</li>
+              <li>[Wat een samenwerking met jou oplevert]</li>
+            </ul>
+          </div>
+
+          <aside class="panel" aria-labelledby="facts-title">
+            <h3 id="facts-title">In het kort</h3>
+            <ul class="facts">
+              <li><span>Locatie</span><span>[plaats, land]</span></li>
+              <li><span>Werkzaam sinds</span><span>[jaartal]</span></li>
+              <li><span>Specialiteit</span><span>[jouw vak]</span></li>
+              <li><span>Talen</span><span>Nederlands, Engels</span></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ===== Diensten: kopieer een <article class="card"> voor meer diensten ===== -->
+      <section class="section" id="diensten" aria-labelledby="diensten-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="diensten-title">Diensten</h2>
+            <p>[Leg in één of twee zinnen uit wat je aanbiedt en voor wie het bedoeld is.]</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18" /></svg>
+              </span>
+              <h3>[Dienst 1]</h3>
+              <p>[Wat houdt deze dienst in en welk probleem lost hij op?]</p>
+            </article>
+            <article class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10" /></svg>
+              </span>
+              <h3>[Dienst 2]</h3>
+              <p>[Korte uitleg van deze dienst in één of twee zinnen.]</p>
+            </article>
+            <article class="card">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.6.8-4.9 4.6 1.3 6.5L12 17.9 6.1 20.2l1.3-6.5L2.5 9.1l6.6-.8L12 2z" /></svg>
+              </span>
+              <h3>[Dienst 3]</h3>
+              <p>[Korte uitleg van deze dienst in één of twee zinnen.]</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Werk / projecten: kopieer een <article class="project"> voor meer ===== -->
+      <section class="section" id="werk" aria-labelledby="werk-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="werk-title">Werk</h2>
+            <p>[Laat hier een paar voorbeelden zien: projecten, opdrachten of resultaten.]</p>
+          </div>
+
+          <div class="work-grid">
+            <!-- Tip: vervang <div class="project-media"> door
+                 <img src="/assets/img/project-1.jpg" alt="Beschrijving" /> -->
+            <article class="project">
+              <div class="project-media" aria-hidden="true">Project 1</div>
+              <div class="project-body">
+                <h3>[Titel van het project]</h3>
+                <p>[Wat je deed, voor wie, en wat het opleverde.]</p>
+                <ul class="tags">
+                  <li class="tag">[tag]</li>
+                  <li class="tag">[tag]</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project-media" aria-hidden="true">Project 2</div>
+              <div class="project-body">
+                <h3>[Titel van het project]</h3>
+                <p>[Wat je deed, voor wie, en wat het opleverde.]</p>
+                <ul class="tags">
+                  <li class="tag">[tag]</li>
+                  <li class="tag">[tag]</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project-media" aria-hidden="true">Project 3</div>
+              <div class="project-body">
+                <h3>[Titel van het project]</h3>
+                <p>[Wat je deed, voor wie, en wat het opleverde.]</p>
+                <ul class="tags">
+                  <li class="tag">[tag]</li>
+                  <li class="tag">[tag]</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Contact: zet je eigen adres in data-email én in de link hiernaast ===== -->
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="contact-title">Contact</h2>
+            <p>[Nodig bezoekers uit om contact op te nemen: waarvoor, en hoe snel je reageert.]</p>
+          </div>
+
+          <div class="contact-grid">
+            <form class="form" id="contact-form" data-email="[jouw@email.nl]" novalidate>
+              <div class="field">
+                <label for="naam">Naam</label>
+                <input id="naam" name="naam" type="text" autocomplete="name" placeholder="Voor- en achternaam" required />
+              </div>
+              <div class="field">
+                <label for="email">E-mailadres</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="naam@voorbeeld.nl" required />
+              </div>
+              <div class="field">
+                <label for="bericht">Bericht</label>
+                <textarea id="bericht" name="bericht" rows="5" placeholder="Waar kan ik je mee helpen?" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Verstuur bericht</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <p class="form-note">
+                Dit formulier opent je e-mailprogramma met het bericht erin; er is geen
+                server-side code nodig. Je kunt hier later ook Formspree of Netlify Forms aan koppelen.
+              </p>
+            </form>
+
+            <aside class="panel" aria-labelledby="gegevens-title">
+              <h3 id="gegevens-title">Gegevens</h3>
+              <ul class="contact-list">
+                <li><span>E-mail</span><a href="mailto:[jouw@email.nl]">[jouw@email.nl]</a></li>
+                <li><span>Telefoon</span><a href="tel:+31600000000">[+31 6 00000000]</a></li>
+                <li><span>Locatie</span><span>[plaats, land]</span></li>
+                <li><span>Reactietijd</span><span>[meestal binnen 1 werkdag]</span></li>
+              </ul>
+              <ul class="socials">
+                <li><a href="#" rel="noopener">[LinkedIn]</a></li>
+                <li><a href="#" rel="noopener">[Instagram]</a></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>&copy; <span data-year>2026</span> Akeel &middot; [jouw slogan]</p>
+        <ul class="footer-links">
+          <li><a href="#over">Over</a></li>
+          <li><a href="#diensten">Diensten</a></li>
+          <li><a href="#werk">Werk</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="/assets/js/app.js" defer></script>
   </body>
 </html>
