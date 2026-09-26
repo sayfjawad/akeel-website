@@ -119,30 +119,31 @@ Repo: `git@github.com:sayfjawad/akeel-website.git`
 
 Wat er al in zit:
 
-- **Titel + omschrijving per taal** — wisselt mee met de taalknop.
+- **Statische tweetaligheid**: Engelse homepage (`/`) én Nederlandse homepage (`/nl/`), aan elkaar
+  gekoppeld met `hreflang` (en `x-default`). Zo ziet Google nu écht beide talen.
+- **Landingspagina's per dienst** (Nederlands, gericht op lokale zoekopdrachten):
+  `/nl/koffiemachine-reparatie/` en `/nl/ebike-reparatie/`, elk met eigen titel, omschrijving,
+  `Service`-structured data en prijs.
 - **Eén `<h1>`**, koppen in oplopende volgorde (`h2` per sectie, `h3` per kaart).
-- **`robots.txt` + `sitemap.xml`** met de canonieke URL, en `<link rel="canonical">` in de pagina.
+- **`robots.txt` + `sitemap.xml`** met alle pagina's, en `<link rel="canonical">` per pagina.
 - **`meta robots`** met `max-image-preview:large`: je afbeelding mag groot in de resultaten.
-- **Social preview** (`og:` + `twitter:`): plak je link in WhatsApp, LinkedIn of Facebook en je
-  ziet titel, omschrijving én afbeelding in plaats van een kale URL.
-- **Deelafbeelding**: een kaart in je eigen kleuren — `assets/img/og-image.jpg` (1200×630) met je
-  woordmerk, je twee diensten en je webadres.
-- **`Person`-node** in de structured data die jou als oprichter (`founder`) aan het bedrijf koppelt.
-- **Structured data** (`application/ld+json`): LocalBusiness + je twee diensten + de website.
-  Dit is de machineleesbare versie van je bedrijf; Google gebruikt het voor rich results.
-- **Snel en licht**: de hele pagina is ~25 kB en gebruikt geen externe libraries — precies wat
-  je wil voor mobiel.
+- **Social preview** (`og:` + `twitter:`) op elke pagina: titel, omschrijving én afbeelding.
+- **Deelafbeelding**: een kaart in je eigen kleuren — `assets/img/og-image.jpg` (1200×630).
+- **Structured data**: LocalBusiness + `Person` (oprichter) + `WebSite` + `Service` per landingspagina,
+  met `areaServed` (Arnhem en omstreken) en `priceRange` (€60 – €150).
+- **Snel en licht**: elke pagina is ~25 kB en gebruikt geen externe libraries.
 
 Wat jij nog moet invullen (staat als TODO-commentaar bovenin `index.html`):
 
 | Veld in de structured data | Waarom |
 | --- | --- |
 | `telephone`, `email` | horen bij de LocalBusiness-gegevens; Google leest en toont ze |
-| `address` of `areaServed` met je plaatsen | hiermee kom je in lokale zoekresultaten |
-| `priceRange` | helpt bij zoekopdrachten over kosten |
-| `openingHoursSpecification` | openingstijden |
-| `geo` | latitude/longitude van je werkplaats |
-| `sameAs` | je Instagram/Facebook-URL's |
+| `sameAs` | je Instagram/Facebook-URL's (heb je nog niet) |
+| `geo` | optioneel: latitude/longitude als je een vaste werkplaats hebt |
+
+Ingevuld: `areaServed` (Arnhem en omstreken) en `priceRange` (€60 – €150). Openingstijden zijn
+"op afspraak" — daarvoor staan geen vaste uren in de structured data, alleen zichtbaar op de
+pagina. Een KvK-nummer heb je nog niet; dat is voor lokale SEO geen vereiste.
 
 Let op: de gegevens op de pagina, in de structured data en op je Google-bedrijfsprofiel moeten
 **exact hetzelfde** zijn. Onbekende velden kun je beter weglaten dan gokken.
@@ -180,7 +181,14 @@ De kaart opnieuw maken met andere woorden of kleuren? Dat staat in `tools/make-o
 de tekst of de kleurcodes aan en draai `bash tools/make-og-image.sh`. Beide scripts gebruiken
 `ffmpeg`, dat al in de container staat.
 
-Let op (tweetaligheid): de Nederlandse teksten staan in `app.js` en zijn dus alleen zichtbaar
-als JavaScript draait. Zoekmachines zien daarom de **Engelse** pagina. Wil je ook op Nederlandse
-zoekwoorden gevonden worden, dan is een echte `/nl/`-pagina met statische Nederlandse teksten
-nodig (met `hreflang` tussen beide talen).
+### Pagina's
+
+| URL | Taal | Doel |
+| --- | --- | --- |
+| `/` | EN | homepage |
+| `/nl/` | NL | homepage, `hreflang`-tegenhanger van `/` |
+| `/nl/koffiemachine-reparatie/` | NL | landingspagina voor koffiemachine-reparatie |
+| `/nl/ebike-reparatie/` | NL | landingspagina voor e-bike-onderhoud |
+
+De taalknop is nu een gewone link (EN ↔ NL) in plaats van een JavaScript-wissel, zodat
+zoekmachines beide talen zelfstandig kunnen lezen.

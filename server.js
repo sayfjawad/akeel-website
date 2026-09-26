@@ -31,6 +31,7 @@ http
   .createServer((req, res) => {
     let rel = decodeURIComponent(req.url.split("?")[0]);
     if (rel === "/") rel = "/index.html";
+    else if (rel.endsWith("/")) rel += "index.html";
     const file = path.join(ROOT, path.normalize(rel));
     if (!file.startsWith(ROOT)) {
       res.writeHead(403);
