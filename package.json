@@ -2,7 +2,7 @@
   "name": "akeel-website",
   "version": "0.1.0",
   "private": true,
-  "description": "Workshop website for akeel — served on :3000, live at https://akeel.sdai.nl",
+  "description": "Velvet & Voltage — repair site for coffee machines and e-bikes, served on :3000, live at https://akeel.sdai.nl",
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js"
