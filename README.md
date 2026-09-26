@@ -157,7 +157,7 @@ ene bestand.
 
 ```bash
 ffmpeg -i jouw-foto.jpg \
-  -vf "scale=1200:630:force_original_aspect_ratio=increase,crop=1200:630" \
+  -vf "scale=1200:630:force_original_aspect_ratio=increase,crop=1200:630:0:0" \
   -q:v 3 assets/img/og-image.jpg
 ```
 
@@ -165,8 +165,19 @@ Kies een foto van minstens 1200 px breed, kijk of het resultaat tussen de 50 en 
 (`ls -l assets/img/og-image.jpg`) en push. WhatsApp en LinkedIn tonen geen SVG; JPEG werkt overal,
 vandaar deze bestandsnaam.
 
+Wil je je foto én je naam erop? Dan doet `tools/make-og-image-from-photo.sh` dat in één stap:
+
+```bash
+bash tools/make-og-image-from-photo.sh /pad/naar/jouw-foto.jpg                    # meteen live
+bash tools/make-og-image-from-photo.sh /pad/naar/jouw-foto.jpg /tmp/probeer.jpg   # eerst kijken
+```
+
+Dat script snijdt de foto op 1200×630 (de bovenkant blijft staan, zodat een portret niet wordt
+afgesneden) en legt daaronder een rustige groene band met je woordmerk, je diensten en je
+webadres — zo blijft een kleine thumbnail in WhatsApp nog leesbaar.
+
 De kaart opnieuw maken met andere woorden of kleuren? Dat staat in `tools/make-og-image.sh` — pas
-de tekst of de kleurcodes aan en draai `bash tools/make-og-image.sh`. Het script gebruikt
+de tekst of de kleurcodes aan en draai `bash tools/make-og-image.sh`. Beide scripts gebruiken
 `ffmpeg`, dat al in de container staat.
 
 Let op (tweetaligheid): de Nederlandse teksten staan in `app.js` en zijn dus alleen zichtbaar

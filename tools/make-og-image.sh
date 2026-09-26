@@ -8,8 +8,10 @@
 #
 # Want your own photo instead? One command is enough (same filename, no code change):
 #   ffmpeg -i jouw-foto.jpg \
-#     -vf "scale=1200:630:force_original_aspect_ratio=increase,crop=1200:630" \
+#     -vf "scale=1200:630:force_original_aspect_ratio=increase,crop=1200:630:0:0" \
 #     -q:v 3 assets/img/og-image.jpg
+#
+# Want your photo plus the wordmark on it? Use tools/make-og-image-from-photo.sh instead.
 set -euo pipefail
 
 SITE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
